@@ -14,13 +14,15 @@ interface FoodDashProps {
 }
 
 interface FoodProps {
-  food: FoodDashProps;
-  handleDelete: (id: number) => Promise<void>;
-  handleEditFood: (food: FoodDashProps) => void;
+  props: {
+    food: FoodDashProps;
+    handleDelete: (id: number) => Promise<void>;
+    handleEditFood: (food: FoodDashProps) => void;
+  }
 }
 
 class Food extends Component {
-  constructor(props) {
+  constructor({props}: FoodProps){
     super(props);
 
     const { available } = this.props.food;
