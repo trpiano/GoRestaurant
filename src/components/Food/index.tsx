@@ -4,6 +4,21 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
+interface FoodDashProps {
+  id: number;
+  name: string;
+  discription: string;
+  price: number;
+  available: boolean;
+  image: string;
+}
+
+interface FoodProps {
+  food: FoodDashProps;
+  handleDelete: (id: number) => Promise<void>;
+  handleEditFood: (food: FoodDashProps) => void;
+}
+
 class Food extends Component {
   constructor(props) {
     super(props);
